@@ -1,0 +1,22 @@
+server:
+  port: 7900 #服务端口
+spring:
+  profiles:
+    active: dev #当前生效环境
+  application:
+    name: springcloud-eureka-client #指定应用的唯一标识/服务名
+
+  cloud:
+    config:
+      fail-fast: true
+      name: ${spring.application.name}  #指定当前工程于config server中的应用名，此处直接引用spring.application.name属性
+      profile: ${spring.profiles.active}  #指定当前工程于config server中的生效环境，此处直接引用spring.profiles.active属性
+      uri: http://localhost:8080  #指定配置中心的ip和端口
+
+# 注册中心配置
+eureka:
+  instance:
+    prefer-ip-address: true #优先使用IP地址注册
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/ #eureka的注册地址
