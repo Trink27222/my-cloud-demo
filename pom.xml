@@ -9,9 +9,9 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>springcloud-eureka</module>
-        <module>springcloud-eureka-client</module>
+        <module>springcloud-client</module>
         <module>springcloud-config</module>
+        <module>springcloud-getway</module>
     </modules>
 
     <properties>

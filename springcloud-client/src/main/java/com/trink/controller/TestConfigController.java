@@ -5,10 +5,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+/**
+ * @author Trink丶
+ */
 @RestController
-@RequestMapping("/clent")
+@RequestMapping("/client")
 public class TestConfigController {
-    @Value("${user.name}") //获取配置文件中对应属性的值
+    /**
+     * 获取配置文件中对应属性的值
+     */
+    @Value("${user.name}")
     private String userName;
 
 
