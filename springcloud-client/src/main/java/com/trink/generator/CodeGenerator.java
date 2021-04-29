@@ -135,6 +135,10 @@ public class CodeGenerator {
             // templateConfig.setEntity("templates/entity2.java");
             // templateConfig.setService();
             // templateConfig.setController();
+
+            /* ================================设置自定义模板================================ */
+            templateConfig.setEntity("/template/Entity.java");
+            templateConfig.setMapper("/template/Mapper.java");
             templateConfig.setXml(null);
             mpg.setTemplate(templateConfig);
             /** ======================================模板配置end=============================== **/
