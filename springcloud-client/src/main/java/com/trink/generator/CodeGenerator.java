@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @author Trink丶
+ */
 public class CodeGenerator {
         /**
          * 读取控制台内容

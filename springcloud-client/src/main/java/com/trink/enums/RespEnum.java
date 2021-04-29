@@ -1,5 +1,9 @@
 package com.trink.enums;
 
+/**
+ * @author Trink丶
+ */
+
 public enum RespEnum {
     /**
      * 成功

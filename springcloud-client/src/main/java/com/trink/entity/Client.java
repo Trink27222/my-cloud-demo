@@ -50,16 +50,24 @@ public class Client implements Serializable {
     private Integer delFlag;
 
     /**
+     *  创建人
+     */
+    @TableField(value = "create_by",fill = FieldFill.INSERT)
+    private String createBy;
+    /**
      * 创建时间
      */
-    @TableField("create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private LocalDateTime createTime;
-
+    /**
+     *  最后更新人
+     */
+    @TableField(value = "update_by",fill = FieldFill.INSERT_UPDATE)
+    private String updateBy;
     /**
      * 最后更新时间
      */
-    @TableField("update_time")
+    @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
-
 
 }

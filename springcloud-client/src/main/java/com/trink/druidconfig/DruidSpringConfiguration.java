@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+/**
+ * @author Trink丶
+ */
 @Aspect //相当于做了一个AOP
 @Configuration
 public class DruidSpringConfiguration {

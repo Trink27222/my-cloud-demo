@@ -5,6 +5,9 @@ import com.baomidou.mybatisplus.extension.injector.LogicSqlInjector;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author Trink丶
+ */
 @Configuration
 public class MPConfiguration {
     /**

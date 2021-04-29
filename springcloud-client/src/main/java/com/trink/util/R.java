@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 /**
  * REST API 返回结果
- * @date: 2019-05-24 14:05
+ * @author Trink丶
  */
 @Data
 @Accessors(chain = true)
