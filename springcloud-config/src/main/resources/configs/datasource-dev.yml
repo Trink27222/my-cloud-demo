@@ -2,9 +2,9 @@ spring:
   # 配置数据库信息
   datasource:
     # 数据源配置
-    username: root
-    password: Trink27222
-    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false  # 设置时区
+    username: spring
+    password: spring
+    url: jdbc:mysql://127.0.0.1:3306/spring?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false  # 设置时区
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource   # 指定数据源为druid
     # 数据库连接池配置
@@ -28,3 +28,23 @@ spring:
       maxPoolPreparedStatementPerConnectionSize: 20
       # 配置多个英文逗号分隔
       filters: stat,wall
+
+# mybatis-plus 配置
+mybatis-plus:
+  # mybatis的mapper文件扫描路径
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  #  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.springcloud.demo.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 3
+    # 热加载mapper文件
+    refresh: true
+    db-config:
+      db-type: mysql
+      #逻辑删除默认设置
+      logic-delete-value: 1 #删除后的状态 默认值1
+      logic-not-delete-value: 0 #逻辑前的值 默认值0
