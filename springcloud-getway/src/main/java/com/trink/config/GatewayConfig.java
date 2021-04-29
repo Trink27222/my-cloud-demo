@@ -1,4 +1,4 @@
-package com.trink.druidconfig;
+package com.trink.config;
 
 import com.trink.filter.RequestTimeFilter;
 import org.springframework.cloud.gateway.route.RouteLocator;
