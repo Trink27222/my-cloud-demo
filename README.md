@@ -1,18 +1,19 @@
+#SpringCloudDemo
+
+## 1.初始化环境
+父工程maven的xml：
+~~~xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<modelVersion>4.0.0</modelVersion>
 
     <groupId>com.trink</groupId>
     <artifactId>my-cloud-demo</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>springcloud-client</module>
-        <module>springcloud-config</module>
-        <module>springcloud-getway</module>
-    </modules>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -102,3 +103,100 @@
     </repositories>
 
 </project>
+~~~
+##2.注册中心
+创建工程：springcloud-eureka
+
+注册中心maven的xml：
+~~~xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>my-cloud-demo</artifactId>
+        <groupId>com.trink</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springcloud-eureka</artifactId>
+    <description>注册中心</description>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+
+
+
+</project>
+~~~
+启动类：
+~~~java
+package com.trink;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+/**
+ * @author Trink丶
+ */
+@EnableEurekaServer
+@SpringBootApplication
+public class SpringCloudEurekaApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringCloudEurekaApplication.class, args);
+    }
+}
+~~~
+配置文件：bootstrap.yml
+~~~yaml
+server:
+  port: 8761 #暴露服务端口
+spring:
+  application:
+    name: springcloud-eureka #服务id
+eureka:
+  client:
+    # 是否要注册到其他Eureka Server实例
+    register-with-eureka: false
+    # 是否要从其他Eureka Server实例获取数据
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #供Eureka客户端使用的注册路径
+  server:
+    eviction-interval-timer-in-ms: 4000 # eureka server清理无效节点的时间间隔，默认60000毫秒，即60秒
+    enable-self-preservation: false # 自我保护模式，当出现出现网络分区、eureka在短时间内丢失过多客户端时，会进入自我保护模式，即一个服务长时间没有发送心跳，eureka也不会将其删除，默认为true
+    renewal-percent-threshold: 0.9 # Eureka Server 自我保护系数，当enable-self-preservation=true时，起作用
+~~~
+完成后的样子：
+
+![img.png](img/erurekaComplete.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
