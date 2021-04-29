@@ -1,4 +1,4 @@
-package com.trink.config;
+package com.trink.druidconfig;
 
 import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 import org.aspectj.lang.annotation.Aspect;

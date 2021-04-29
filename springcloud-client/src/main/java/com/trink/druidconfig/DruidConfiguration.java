@@ -1,4 +1,4 @@
-package com.trink.config;
+package com.trink.druidconfig;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
