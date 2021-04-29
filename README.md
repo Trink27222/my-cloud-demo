@@ -104,7 +104,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 </project>
 ~~~
-##2.注册中心
+## 2.注册中心
 创建工程：springcloud-eureka
 
 注册中心maven的xml：
