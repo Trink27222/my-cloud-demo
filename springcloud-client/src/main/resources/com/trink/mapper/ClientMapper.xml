@@ -12,4 +12,11 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="selectClientPage" resultType="com.trink.entity.Client">
+        SELECT *
+        FROM client
+        <if test="client.clientName!=null">
+            WHERE client_name LIKE CONCAT('%',#{client.clientName},'%')
+        </if>
+    </select>
 </mapper>

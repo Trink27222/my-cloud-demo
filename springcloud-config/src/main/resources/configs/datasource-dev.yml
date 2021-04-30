@@ -2,9 +2,9 @@ spring:
   # 配置数据库信息
   datasource:
     # 数据源配置
-    username: spring
-    password: spring
-    url: jdbc:mysql://127.0.0.1:3306/spring?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false  # 设置时区
+    username: root
+    password: Trink27222
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=GMT%2B8&characterEncoding=UTF-8&useSSL=false  # 设置时区
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource   # 指定数据源为druid
     # 数据库连接池配置
@@ -28,6 +28,7 @@ spring:
       maxPoolPreparedStatementPerConnectionSize: 20
       # 配置多个英文逗号分隔
       filters: stat,wall
+
 
 # mybatis-plus 配置
 mybatis-plus:
